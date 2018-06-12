@@ -14,12 +14,19 @@ class PetsPage extends Component {
 
   render() {
     return (
-      <div>Pets Page</div>
+      <div>
+      <h1>Pets Page</h1>
+      <Switch>
+      <Route path={`${this.props.match.url}/new`} component={PetsNew} />
+      <Route path={`${this.props.match.url}/:petId`} component={PetsShow}/>
+      <Route/>
+      </Switch>
+      </div>
     )
   }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     pets: state.pets
   };
